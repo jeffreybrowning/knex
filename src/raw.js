@@ -92,7 +92,7 @@ assign(Raw.prototype, {
       if(helpers.containsUndefined(this._cached.bindings)) {
         throw new Error(
           `Undefined binding(s) detected when compiling RAW query: ` +
-          this._cached.sql + `params: ${tz}`
+          this._cached.sql + `params: ${this._cached.bindings}`
         );
       }
       this._cached.bindings = this.client.prepBindings(this._cached.bindings, tz);
